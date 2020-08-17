@@ -12,4 +12,17 @@ pip3 install -r requirements.txt
 
 python3 youtube_video_downloader.py
 
+# Known Error and handling
+
+Error : 'cipher'
+
+update line 300 of extract.py (pytube folder inside site-packages of python lib) as follows :
+
+except KeyError:
+cipher_url = [
+parse_qs(formats[i]["signatureCipher"]) for i, data in enumerat$
+]
+
+
+
 
