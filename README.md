@@ -20,7 +20,7 @@ update line 300 of extract.py (pytube folder inside site-packages of python lib)
 
 except KeyError:
 cipher_url = [
-parse_qs(formats[i]["signatureCipher"]) for i, data in enumerat$
+parse_qs(formats[i]["signatureCipher"]) for i, data in enumerate(formats) if "signatureCipher" in formats[i]
 ]
 
 
