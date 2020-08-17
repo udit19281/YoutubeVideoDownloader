@@ -8,7 +8,7 @@ windows 10
 
 git clone https://github.com/udit19281/youtube-video-downloader.git
 
-python3 -r requirements.txt
+pip3 install -r requirements.txt
 
 python3 youtube_video_downloader.py
 
