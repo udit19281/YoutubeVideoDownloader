@@ -7,13 +7,14 @@ try:
     yt2= YouTube(link)
     yt=yt2.streams.filter(progressive=True)
     video=yt2.streams.get_highest_resolution()
-except:
+except Exception as e:
+    print(e)
     print("ERROR TRY AGAIN")
     exit()
 
-def_path="C:/Users/Dell/Downloads"   #update your file path here
+def_path="C:/Users/Dell/Downloads"   #default for windows
 
-path=input(f"ENTER PATH TO DOWNLOAD THE VIDEO (ENTER for default : {def_path}) : ".format(def_path=def_path))
+path=input(f"ENTER PATH TO DOWNLOAD THE VIDEO (FOR EXAMPLE : {def_path}) : ".format(def_path=def_path))
 
 if path=="":
     path=def_path
@@ -41,7 +42,7 @@ if name!="":
 
     name=path+"/"+name+".mp4"
     try:
-        vid.write_videofile(name+".mp4",audio=path+"/a2.mp3")
+        vid.write_videofile(name,audio=path+"/a2.mp3")
     except Exception as e:
         print (e)
         vid.close()
