@@ -1,7 +1,7 @@
 # youtube-video-downloader
 this python script will download youtube videos using a url in the highest resolution possible. give it a url,path to the folder and final video name.
 
-# tested on
+# Tested on
 windows 10
 
 # How to use
