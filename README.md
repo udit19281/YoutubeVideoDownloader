@@ -1,5 +1,6 @@
 # About
-this python script will download youtube videos using a url in the highest resolution possible. give it a url,path to the folder and final video name.
+Scriptt will download youtube video in both mp3 and mp4 formats in the highest resolution possible. 
+Input a url and output name.
 
 # Tested on
 - Windows
@@ -12,7 +13,8 @@ this python script will download youtube videos using a url in the highest resol
 
 - pip install -r requirements.txt
 
-- python youtube_video_downloader.py
+- python downloade.py
+
 
 # Known Error and handling
 
