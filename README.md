@@ -10,9 +10,9 @@ this python script will download youtube videos using a url in the highest resol
 
 - git clone https://github.com/udit19281/youtube-video-downloader.git
 
-- pip3 install -r requirements.txt
+- pip install -r requirements.txt
 
-- python3 youtube_video_downloader.py
+- python youtube_video_downloader.py
 
 # Known Error and handling
 
