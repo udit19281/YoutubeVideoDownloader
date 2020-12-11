@@ -1,9 +1,9 @@
 # About
-Script will download youtube video in both mp3 and mp4 formats in the highest resolution possible. 
-Input a url and output name.
+- Script will download youtube video in both mp3 and mp4 formats in the highest resolution possible. 
+- Input a url and output file name.
 
 # Tested on
-- Windows
+- Windows 10
 
 - Linux
 
