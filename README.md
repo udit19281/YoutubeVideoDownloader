@@ -1,5 +1,5 @@
 # About
-Scriptt will download youtube video in both mp3 and mp4 formats in the highest resolution possible. 
+Script will download youtube video in both mp3 and mp4 formats in the highest resolution possible. 
 Input a url and output name.
 
 # Tested on
