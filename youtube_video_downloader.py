@@ -1,7 +1,21 @@
-from pytube import YouTube
+
 from moviepy.editor import *
 import os
+from time import sleep
 import sys
+def install_and_import(package):        # Function Reference: stackoverflow
+    import importlib
+    try:
+        importlib.import_module(package)
+    except ImportError:
+        import pip
+        print("INSTALLING PYTUBE")
+        pip.main(['install', package])
+    finally:
+        globals()[package] = importlib.import_module(package)
+
+install_and_import('pytube')
+from pytube import YouTube
 link=input("ENTER LINK OF THE VIDEO : ")
 try:
     yt2= YouTube(link)
@@ -12,18 +26,12 @@ except Exception as e:
     print("ERROR TRY AGAIN")
     exit()
 
-def_path="C:/Users/Dell/Downloads"   #default for windows
-
-path=input(f"ENTER PATH TO DOWNLOAD THE VIDEO (FOR EXAMPLE : {def_path}) : ".format(def_path=def_path))
-
-if path=="":
-    path=def_path
-
+path=os.getcwd()
 name=input("ENTER VIDEO TITLE (without '/,|,mp3,mp4') eg:VIDEO_NAME :")
 
 if name!="":
     audiotodown=yt[0]
-    print("[+] DOWNLOADING REQUIRED FILES WAITZ.. ")
+    print("[+] DOWNLOADING REQUIRED FILES WAIT... ")
     try:
         video.download(path,"v1")
         audiotodown.download(path,"a1")
@@ -33,24 +41,24 @@ if name!="":
     print("[+] DOWNLOADED FILES")
     print("[+] CONVERTING FILES PLEASE WAIT ...")
 
-    #converting downloaded files 
+    # Converting downloaded files
 
-    vid=VideoFileClip(path+"/v1.mp4")
-    aud=VideoFileClip(path+"/a1.mp4")
+    vid=VideoFileClip(path+r"\v1.mp4")
+    aud=VideoFileClip(path+r"\a1.mp4")
     audmp3=aud.audio
-    audmp3.write_audiofile(path+"/a2.mp3",verbose=False)
-
-    name=path+"/"+name+".mp4"
+    audmp3.write_audiofile(path+r"\r"+name+".mp3",verbose=False)
+    #exit()
+    namevid=path+r"\r"+name+".mp4"
     try:
-        vid.write_videofile(name,audio=path+"/a2.mp3")
+        vid.write_videofile(namevid,audio=path+r"\r"+name+".mp3",verbose=False)
     except Exception as e:
         print (e)
         vid.close()
         aud.close()
         audmp3.close()
-        os.remove(path+"/v1.mp4") 
-        os.remove(path+"/a2.mp3")
-        os.remove(path+"/a1.mp4")
+        os.remove(path+r"\v1.mp4")
+        os.remove(path+r"\r"+name+".mp3")
+        os.remove(path+r"\a1.mp4")
         exit()
 
     vid.close()
@@ -58,8 +66,10 @@ if name!="":
     audmp3.close()
     #command to remove extra downloaded files
     print("[+] REMOVING EXTRA FILES ...")
-    os.remove(path+"/v1.mp4") 
-    os.remove(path+"/a2.mp3")
-    os.remove(path+"/a1.mp4")
+    os.remove(path+r"\v1.mp4")
+    #os.remove(path+r"\a2.mp3")
+    os.remove(path+r"\a1.mp4")
 
-    print(f"[+] VIDEO DOWNLOADED at {path} with name {name} ".format(path=path, name=name))
+    print(f"[+] VIDEO DOWNLOADED AT: {path} WITH NAME: {name} ".format(path=path, name=namevid))
+
+#Code By: udit19281
